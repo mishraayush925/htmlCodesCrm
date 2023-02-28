@@ -1,0 +1,325 @@
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Zoho CRM</title>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="jquery-1.11.0.min.js"></script>
+  
+  <style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #customers td,
+    #customers th {
+
+      padding: 8px;
+    }
+
+
+
+
+
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #ccc;
+      color: white;
+    }
+
+    .center {
+
+      margin: auto;
+      width: 80%;
+
+    }
+
+
+
+    .label_style {
+      display: inline-block;
+      width: 140px;
+      text-align: right;
+      margin-right: 20px;
+    }
+
+
+    .input_style[type=text] {
+      width: 320px;
+      padding: 4px 8px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      font-weight: 500;
+      border: 2px solid #8b8787;
+      border-radius: 6px;
+
+
+
+    }
+
+    .span_style {
+      width: 300px;
+      padding: 4px 0px;
+      width: 320px;
+      box-sizing: border-box;
+
+      border: 4px solid #8b8787;
+      border-radius: 6px;
+    }
+
+    .select_style {
+      margin-left: 20px;
+      width: 320px;
+      padding: 4px 12px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      font-weight: 500;
+      border: 2px solid #8b8787;
+      border-radius: 6px;
+
+
+    }
+  </style>
+  <script>$('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+
+    })
+    function myfunShow() {
+      document.getElementById("textbox").style.display = "block";
+      document.getElementById("checkbox1").style.display = "block";
+
+      document.getElementById("create_footer").style.display = "block";
+
+
+
+    }
+    function myfunHide() {
+      document.getElementById("textbox").style.display = "none";
+      document.getElementById("checkbox1").style.display = "none";
+      document.getElementById("create_footer").style.display = "none";
+
+
+
+
+    }
+  </script>
+
+
+<body style="margin-left: 10px">
+  <h3 class="font-weight-bold">Convert Lead <span class="font-weight-light text-muted font-weight-bold"
+      id="lead_name">(test by hitesh)</span></h3>
+  <hr style="height:1px; background-color: grey " />
+  <p>Contacts with similar details in <b>Contact Name</b> already exist.</p>
+  <input type="radio" id="opt1" name="opt" value="opt1" class="btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#myModal"><label for="opt1" onclick=myfunHide()><span style="margin: 20px">Add to existing
+      Contact</span> <a href="#">View</a></label><br>
+
+  <input type="radio" id="opt2" name="opt" value="opt2"><label onclick=myfunShow() for="opt2"><span
+      style="margin: 16px"> Create New Contact : <span style="border-radius: 7px; padding:2px 3px 2px 3px"
+        class=" bg-secondary text-white">test by hitesh </span><span class=" text-muted font-weight-bold">(Layout :
+        Merchants)</span></span> </label><br>
+
+
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div style="padding: 3px ; margin:3px">
+          <h3>Matching Contact Record(s)</h3>
+        </div>
+        <div style="padding: 5px ; margin:15px " class="rounded">
+          <table class="border border-secondary " id="customers" style="border-radius: 5x">
+            <tr class="table-active">
+              <th></th>
+              <th class="text-secondary">Contact Name</th>
+              <th class="text-secondary">Account Name</th>
+              <th class="text-secondary">Email</th>
+              <th class="text-secondary">Layout</th>
+            </tr>
+            <tr>
+              <td> <input type="radio"></td>
+              <td><a href="#" style="color:lightblue" class="badge badge-secondary">test by hitesh</a></td>
+              <td>test hitesh account</td>
+              <td></td>
+
+              <td>Merchants</td>
+            </tr>
+            <tr>
+              <td> <input type="radio"></td>
+              <td><a href="#" style="color:lightblue" class="badge badge-secondary">test by hitesh</a></td>
+              <td>test hitesh account</td>
+              <td></td>
+
+              <td>Merchants</td>
+            </tr>
+
+          </table>
+        </div>
+
+        <!-- Modal footer -->
+        <div style="margin :8px" class="modal-footer-left">
+          <button type="button" class="btn btn-primary disabled" data-bs-dismiss="modal">Done</button>
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <div class="form-check" id="checkbox1" style="display:none">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+    <label class="form-check-label" for="flexCheckChecked">
+      Create a new Submission for this Contact
+    </label>
+  </div>
+  <div style="font-weight: 500; display:none" class="center" id="textbox">
+
+    <div class="center-contentx">
+
+      <label class="label_style" for="formGroupExampleInput">Layout </label> <input type="text" class="input_style"
+        id="Layout_c" name="Layout_c" value="Merchant Account" /> <br> <br>
+      <label class="label_style">MID </label><input class="input_style" type="text" id="MID" name="MID" value="" /> <br>
+      <br>
+      <label class="label_style">Submission Name</label>
+      <input class="input_style" style="border-left: 10px solid #e84141;" type="text" id="Submission_Name"
+        name="Submission_Name" value="test by hitesh" /> <br> <br>
+      <label class="label_style">Processor</label>
+      <span class="span_style" style="border-left: 10px solid #e84141; border-radius: 6px;"><input class="input_style"
+          style="border: 0; width: 285px;" type="text" id="Processor" name="Processor" value="" /> <svg
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+          <path
+            d="M2.75 1.5a.25.25 0 0 0-.25.25v11.5c0 .138.112.25.25.25h3.5a.75.75 0 0 1 0 1.5h-3.5A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8a1.75 1.75 0 0 1 1.508.862.75.75 0 1 1-1.289.768.25.25 0 0 0-.219-.13h-8Z">
+          </path>
+          <path
+            d="M8 7a3.999 3.999 0 0 1 7.605-1.733 4 4 0 0 1-1.115 4.863l.995 4.973a.75.75 0 0 1-.991.852l-2.409-.876a.248.248 0 0 0-.17 0l-2.409.876a.75.75 0 0 1-.991-.852l.994-4.973A3.994 3.994 0 0 1 8 7Zm4-2.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm0 6.5c-.373 0-.745-.051-1.104-.154l-.649 3.243 1.155-.42c.386-.14.81-.14 1.196 0l1.155.42-.649-3.243A4.004 4.004 0 0 1 12 11Z">
+          </path>
+        </svg> </span><br> <br>
+      <label class="label_style">Stage</label>
+      <select class="select_style" style="border-left: 10px solid #e84141;" name="Stage" id="Stage">
+        <option value="Underwriting" selected>Underwriting</option>
+        <option value="UW / Stips Needed">UW / Stips Needed</option>
+        <option value="Reserve sent to Merchant">
+          Reserve sent to Merchant
+        </option>
+        <option value="Conditionally Approved">Conditionally Approved</option>
+        <option value="Reserve sent to Bank">Reserve sent to Bank</option>
+        <option value="Approved">Approved</option>
+        <option value="Declined">Declined</option>
+        <option value="Lost Deal">Lost Deal</option>
+        <option value="Auto Approved">Auto Approved</option>
+      </select> <br> <br>
+      <label class="label_style">Submission Owner</label>
+      <select class="select_style" name="Stage" id="Stage">
+        <option value="Underwriting" selected>Carolina Barbalace</option>
+        <option value="UW / Stips Needed">UW / Stips Needed</option>
+        <option value="Reserve sent to Merchant">
+          Reserve sent to Merchant
+        </option>
+        <option value="Conditionally Approved">Conditionally Approved</option>
+        <option value="Reserve sent to Bank">Reserve sent to Bank</option>
+        <option value="Approved">Approved</option>
+        <option value="Declined">Declined</option>
+        <option value="Lost Deal">Lost Deal</option>
+        <option value="Auto Approved">Auto Approved</option>
+      </select> <br> <br>
+      <label class="label_style">Pipeline</label>
+      <select class="select_style" style="border-left: 10px solid #e84141;" name="Pipeline" id="Pipeline">
+        <option value="Sales">Sales</option>
+        <option value="Partners">Partners</option>
+      </select> <br> <br>
+      <label class="label_style"> Application Type</label>
+      <select class="select_style" style="border-left: 10px solid #e84141;" name="Application_Type"
+        id="Application_Type">
+        <option value="ACH">ACH</option>
+        <option value="E-check">E-check</option>
+        <option value="Merchant Account" selected>Merchant Account</option>
+      </select> <br> <br>
+      <label class="label_style"> Rates</label>
+      <select class="select_style" name="Rates" id="Rates">
+        <option value="" selected>-None-</option>
+        <option value="Interchange">Interchange</option>
+        <option value="Tiered">Tiered</option>
+        <option value="Surcharge">Surcharge</option>
+        <option value="Flat Rate">Flat Rate</option>
+      </select><br> <br>
+      <label class="label_style">IC+ </label><input class="input_style" type="text" id="IC" name="IC" value="" />
+      <br><br>
+      <label class="label_style"> Qual Rates</label>
+      <input class="input_style" type="text" id="Qual_Rates" name="Qual_Rates" value="" /><br> <br>
+
+
+
+      <label class="label_style">SIC/ MCC
+        Code </label><input class="input_style" type="text" id="SIC" name="SIC" value="" /> <br><br>
+      <label class="label_style">Campaign Source</label>
+      <input class="input_style" type="text" id="cs" name="cs" value="" /> <br>
+
+      <br> <label class="label_style">Contact Role</label>
+      <select class="select_style" name="Contact_Role" id="Contact_Role">
+        <option value="">None</option>
+        <option value="Secondary Owner">Secondary Owner</option>
+        <option value="Point of Contact">Point of Contact</option>
+      </select>
+      <br>
+      <br>
+
+
+
+
+    </div>
+
+  </div>
+  <br><br><br>
+  <div id="create_footer" style="display:none">
+    <div>
+      Owner of the New Records
+    </div>
+    <div>
+      <span><button class="btn btn-light" style="margin-right: 5px;">Carolina Barbalace</button></span><svg
+        xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-rolodex"
+        viewBox="0 0 16 16">
+        <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+        <path
+          d="M1 1a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h.5a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5.5.5 0 0 1 1 0 .5.5 0 0 0 .5.5h.5a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H6.707L6 1.293A1 1 0 0 0 5.293 1H1Zm0 1h4.293L6 2.707A1 1 0 0 0 6.707 3H15v10h-.085a1.5 1.5 0 0 0-2.4-.63C11.885 11.223 10.554 10 8 10c-2.555 0-3.886 1.224-4.514 2.37a1.5 1.5 0 0 0-2.4.63H1V2Z" />
+      </svg>
+    </div>
+  </div>
+  <br><br><br>
+  <span style="margin : 5px"> <button type="button" class="btn btn-primary disabled" value="submit"
+      id="submit1">Convert</button></span>
+
+  <span> <button type="button" class="btn btn-light" value="Cancel" id="submit2">Cancel</button></span>
+
+
+</body>
+
+</html>
